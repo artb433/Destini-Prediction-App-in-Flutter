@@ -2,7 +2,7 @@ class Story {
   String storyTitle;
   String choice1;
   String choice2;
-  Story({String Q, String A, String B, String storyTitle}) {
+  Story(String Q, String A, String B) {
     storyTitle = Q;
     choice1 = A;
     choice2 = B;
