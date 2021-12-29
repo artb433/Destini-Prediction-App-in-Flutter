@@ -46,6 +46,37 @@ class StoryBrain {
   String getChoice2() {
     return _storyData[_storyNumber].choice2;
   }
+
+  void nextStory(int choiceNumber) {
+    if (choiceNumber == 1 && _storyNumber == 0) {
+      _storyNumber = 2;
+    } else if (choiceNumber == 2 && _storyNumber == 0) {
+      _storyNumber = 1;
+    } else if (choiceNumber == 1 && _storyNumber == 2) {
+      _storyNumber = 5;
+    } else if (choiceNumber == 2 && _storyNumber == 2) {
+      _storyNumber = 4;
+    } else if (choiceNumber == 1 && _storyNumber == 1) {
+      _storyNumber = 2;
+    } else if (choiceNumber == 2 && _storyNumber == 1) {
+      _storyNumber = 3;
+    } else {
+      // _storyNumber == _storyData.length;
+      restart();
+    }
+  }
+
+  void restart() {
+    _storyNumber = 0;
+  }
+
+  bool buttonShouldBeVisible() {
+    if (_storyNumber >= 0 && _storyNumber <= 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 //TODO: Step 23 - Use the storyNumber property inside getStory(), getChoice1() and getChoice2() so that it gets the updated story and choices rather than always just the first (0th) one.
